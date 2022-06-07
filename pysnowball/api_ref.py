@@ -55,3 +55,10 @@ index_perf = "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=
 # hkex
 hkex_connect = "http://www.hkexnews.hk/sdw/search/mutualmarket.aspx?t="
 
+
+# kline
+kline = "https://stock.xueqiu.com/v5/stock/chart/kline.json?symbol={symbol}&begin={begin}&period={period}&type={type}&count={count}&indicator=kline,pe,pb,ps,pcf,market_capital,agt,ggt,balance"
+
+# basic
+stock_list_shsz = "https://xueqiu.com/service/v5/stock/screener/quote/list?page=1&size=10000&order=desc&orderby=percent&order_by=percent&market=CN&type=sh_sz"
+stock_list_kcb = "https://xueqiu.com/service/v5/stock/screener/quote/list?page=1&size=10000&order=desc&orderby=percent&order_by=percent&market=CN&type=kcb"

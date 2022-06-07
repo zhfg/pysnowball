@@ -6,15 +6,12 @@ import pysnowball.token as token
 
 
 def fetch(url, host="stock.xueqiu.com"):
-    HEADERS = {'Host': host,
-               'Accept': 'application/json',
-               'Cookie': token.get_token(),
-               'User-Agent': 'Xueqiu iPhone 11.8',
-               'Accept-Language': 'zh-Hans-CN;q=1, ja-JP;q=0.9',
-               'Accept-Encoding': 'br, gzip, deflate',
-               'Connection': 'keep-alive'}
-
-    response = requests.get(url, headers=HEADERS)
+    session = requests.Session()
+    session.headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+        }
+    session.get('https://xueqiu.com/')
+    response = session.get(url)
 
     # print(url)
     # print(HEADERS)
@@ -28,14 +25,21 @@ def fetch(url, host="stock.xueqiu.com"):
 
 
 def fetch_without_token(url, host="stock.xueqiu.com"):
-    HEADERS = {'Host': host,
-               'Accept': 'application/json',
-               'User-Agent': 'Xueqiu iPhone 11.8',
-               'Accept-Language': 'zh-Hans-CN;q=1, ja-JP;q=0.9',
-               'Accept-Encoding': 'br, gzip, deflate',
-               'Connection': 'keep-alive'}
+    session = requests.Session()
+    session.headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+        }
+    session.get('https://xueqiu.com/')
+    response = session.get(url)
 
-    response = requests.get(url, headers=HEADERS)
+    # HEADERS = {'Host': host,
+    #            'Accept': 'application/json',
+    #            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+    #            'Accept-Language': 'zh-Hans-CN;q=1, ja-JP;q=0.9',
+    #            'Accept-Encoding': 'br, gzip, deflate',
+    #            'Connection': 'keep-alive'}
+
+    # response = requests.get(url, headers=HEADERS)
 
     # print(url)
     # print(HEADERS)
